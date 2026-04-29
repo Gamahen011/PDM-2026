@@ -15,7 +15,7 @@ export const routes: Routes = [
     loadComponent: () => import('./desafio2/desafio2.page').then( m => m.Desafio2Page)
   },
   {
-    path: 'formatar-preco',
+    path: 'formatarpreco',
     loadComponent: () => import('./formatar-preco/formatar-preco.page').then( m => m.FormatarPrecoPage)
   },
 ];

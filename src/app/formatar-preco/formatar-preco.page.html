@@ -11,10 +11,8 @@
     </ion-toolbar>
   </ion-header>
   <ion-button (click)="irParaMenu()">Voltar para o Menu</ion-button>
-  <h1>Digite o id do produto cujo preço deseja ser formatado</h1>
-  <form action="formatar-preco.page.ts" method="post">
-    <ion-input type="number" placeholder="Digite o id do produto"></ion-input>
-    <ion-button type="submit" (click)="formatarPreco(1)">Formatar Preço</ion-button>
-  </form>
-  
+  <ion-input type="number" placeholder="Digite o id do produto" [(ngModel)]="idProduto" name="idProduto"> </ion-input>
+  <ion-button type="submit" (click)="formatarPreco(idProduto)">Formatar Preço</ion-button>
+  <h2 *ngIf="precoFormatado">Preço formatado: {{ precoFormatado }}</h2>
+  <h2 *ngIf="!precoFormatado">Produto não encontrado</h2>
 </ion-content>
