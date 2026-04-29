@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>formatar-preco</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">formatar-preco</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button (click)="irParaMenu()">Voltar para o Menu</ion-button>
+  <h1>Digite o id do produto cujo preço deseja ser formatado</h1>
+  <form action="formatar-preco.page.ts" method="post">
+    <ion-input type="number" placeholder="Digite o id do produto"></ion-input>
+    <ion-button type="submit" (click)="formatarPreco(1)">Formatar Preço</ion-button>
+  </form>
+  
+</ion-content>
