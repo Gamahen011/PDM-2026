@@ -45,6 +45,10 @@ export const routes: Routes = [
     path: 'concluir-tarefa',
     loadComponent: () => import('./concluir-tarefa/concluir-tarefa.page').then( m => m.ConcluirTarefaPage)
   },
+  {
+    path: 'ordenar-tarefas',
+    loadComponent: () => import('./ordenar-tarefas/ordenar-tarefas.page').then( m => m.OrdenarTarefasPage)
+  },
 
 
 ];

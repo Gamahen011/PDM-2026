@@ -24,19 +24,19 @@ export class ContarPrioridadePage implements OnInit {
   ngOnInit() {
   }
 
-  contarPorPrioridade(): [number, number, number] { 
+  contarPorPrioridade(): number[] {
    this.alta = 0;
    this.media = 0;
    this.baixa = 0;
    this.tarefas = JSON.parse(localStorage.getItem('tarefas') || '[]');
-   this.tarefas.forEach(t => { 
-       if (t.prioridade === "alta") 
-           (this.alta += 1); 
-       if (t.prioridade === "média") 
-           (this.media += 1); 
-       if (t.prioridade === "baixa") 
-           (this. baixa += 1);       
-   }) 
+   this.tarefas.forEach(t => {
+       if (t.prioridade === "alta")
+           (this.alta += 1);
+       if (t.prioridade === "média")
+           (this.media += 1);
+       if (t.prioridade === "baixa")
+           (this. baixa += 1);
+   })
    return [this.alta, this.media, this.baixa];
 }
 }

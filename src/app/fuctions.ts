@@ -48,7 +48,7 @@ export function formatarPreco(id?: number): string {
       const produtos: Produto[] = JSON.parse(localStorage.getItem('produtos') || '[]');
       produtos.forEach(p => {
         if (p.id === id) {
-          precoFormatado = "R$ " + p.preco + ",00";
+          precoFormatado = p.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
         }
       });
     }

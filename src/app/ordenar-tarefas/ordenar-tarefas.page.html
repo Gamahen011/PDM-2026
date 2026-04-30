@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ordenar Tarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ordenar Tarefas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
+  <ion-list>
+    <ion-item *ngFor="let tarefa of tarefasOrdenadas">
+      {{ tarefa.titulo }} - Prioridade: {{ tarefa.prioridade }}
+    </ion-item>
+  </ion-list> <br> <br>
+  <ion-button (click)="ordenarTarefas()">Ordenar Tarefas</ion-button>
+</ion-content>
