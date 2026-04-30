@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>filtrarTarefas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">filtrarTarefas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
+  <label for="seletorfiltrar">Selecione o filtro:</label>
+  <form>
+    <select [(ngModel)]="filtro" name="seletorfiltrar" id="seletorfiltrar">
+      <option value="concluidas">Tarefas Concluídas</option>
+      <option value="pendentes">Tarefas Pendentes</option>
+    </select>    
+  </form>
+  <ion-list *ngIf="filtro=='concluidas'">
+    <h2 *ngIf="filtrarTarefas()[0]">Tarefas Concluídas:</h2>
+    <ion-item *ngFor="let tarefa of filtrarTarefas()[0]">{{ tarefa.titulo }}</ion-item>
+  </ion-list>
+  <ion-list *ngIf="filtro=='pendentes'">
+    <h2 *ngIf="filtrarTarefas()[1]">Tarefas Pendentes:</h2>
+    <ion-item *ngFor="let tarefa of filtrarTarefas()[1]">{{ tarefa.titulo }}</ion-item>
+  </ion-list>
+</ion-content>

@@ -18,4 +18,13 @@ export const routes: Routes = [
     path: 'formatarpreco',
     loadComponent: () => import('./formatar-preco/formatar-preco.page').then( m => m.FormatarPrecoPage)
   },
+  {
+    path: 'calculartotalestoque',
+    loadComponent: () => import('./calcular-total-estoque/calcular-total-estoque.page').then( m => m.CalcularTotalEstoquePage)
+  },  {
+    path: 'filtrar-tarefas',
+    loadComponent: () => import('./filtrar-tarefas/filtrar-tarefas.page').then( m => m.FiltrarTarefasPage)
+  },
+
+
 ];
