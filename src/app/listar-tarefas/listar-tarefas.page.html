@@ -11,12 +11,13 @@
     </ion-toolbar>
   </ion-header>
   <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
-  <ion-button (click)="filtrarTarefas()">Listar Tarefas</ion-button>
   <ion-list>
     <ion-item *ngFor="let tarefa of tarefas">
       {{ tarefa.titulo }}
     </ion-item>
-  </ion-list> <br> <br>
+  </ion-list>
+  <ion-button (click)="filtrarTarefas()">Listar Tarefas</ion-button> <br>
+  <h2>Selecione o filtro:</h2>
   <select [(ngModel)]="filtro" name="seletorlistar" id="seletorlistar">
     <option value="concluidas">Tarefas Concluídas</option>
     <option value="pendentes">Tarefas Pendentes</option>
