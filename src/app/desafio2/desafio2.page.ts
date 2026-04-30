@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
+import { salvarDados } from '../fuctions.js';
 
 export type Produto = {
   id: number,
@@ -33,7 +34,7 @@ export class Desafio2Page implements OnInit {
       {id:2, nome:"Melão", preco:20, estoque:30},
       {id:3, nome:"Goiaba", preco:15, estoque:40},
       {id:4, nome:"Pera", preco:15, estoque:35},
-      {id:5, nome:"Tomate", preco:7, estoque:60}    
+      {id:5, nome:"Tomate", preco:7, estoque:60}   
   ]
 
   tarefas: Tarefa[] = [
@@ -49,9 +50,10 @@ export class Desafio2Page implements OnInit {
   ngOnInit() {
   }
   
-  salvarDados() {
-    localStorage.setItem('produtos', JSON.stringify(this.produtos));
-    localStorage.setItem('tarefas', JSON.stringify(this.tarefas));
+  salvar(): void {
+    this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
+    this.tarefas = JSON.parse(localStorage.getItem('tarefas') || '[]');
+    salvarDados(this.produtos, this.tarefas);
   }
 
 }

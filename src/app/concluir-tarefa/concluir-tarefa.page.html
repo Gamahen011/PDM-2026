@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Concluir Tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Concluir Tarefa</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
+  <ion-input placeholder="Id da tarefa a concluir" type="number" [(ngModel)]="idTarefa"></ion-input>
+  <ion-button (click)="concluirTarefa(idTarefa)">Concluir Tarefa</ion-button>
+
+</ion-content>

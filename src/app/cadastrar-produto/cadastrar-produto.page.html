@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastrar Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
+  <form>
+  <ion-item>
+    <ion-input label="Nome" [(ngModel)]="nome" name="name"></ion-input> 
+  </ion-item>
+  <ion-item>
+    <ion-input label="Preço" [(ngModel)]="preco" name="precoinput" type="number"></ion-input> 
+  </ion-item>
+  <ion-item>
+    <ion-input label="Estoque" [(ngModel)]="estoque" name="estoqueinput" type="number"></ion-input> 
+  </ion-item>
+</form>
+  <ion-button type="submit" expand="block" (click)="cadastrarProduto()">Cadastrar Produto</ion-button>
+</ion-content>

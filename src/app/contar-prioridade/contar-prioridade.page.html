@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Contar por Prioridade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Contar por Prioridade</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
+  <h2>Contagem de Tarefas por Prioridade</h2>
+  <ion-list>
+    <ion-item>Alta: {{ alta }}</ion-item>
+    <ion-item>Média: {{ media }}</ion-item>
+    <ion-item>Baixa: {{ baixa }}</ion-item>
+  </ion-list>
+  <ion-button (click)="contarPorPrioridade()">Contar Tarefas por Prioridade</ion-button>
+</ion-content>
