@@ -20,6 +20,7 @@ export type Tarefa = {
   dataCriacao: Date
 }
 
+
 @Component({
   selector: 'app-desafio2',
   templateUrl: './desafio2.page.html',
@@ -34,7 +35,7 @@ export class Desafio2Page implements OnInit {
       {id:2, nome:"Melão", preco:20, estoque:30},
       {id:3, nome:"Goiaba", preco:15, estoque:40},
       {id:4, nome:"Pera", preco:15, estoque:35},
-      {id:5, nome:"Tomate", preco:7, estoque:60}   
+      {id:5, nome:"Tomate", preco:7, estoque:60}
   ]
 
   tarefas: Tarefa[] = [
@@ -42,14 +43,18 @@ export class Desafio2Page implements OnInit {
       {id:2, titulo:"Limpar estoque", concluida: true, prioridade:"alta", dataCriacao: new Date(2026, 1, 22)},
       {id:3, titulo:"Contratar funcionário", concluida: true, prioridade:"baixa", dataCriacao: new Date(2025, 12, 10)},
       {id:4, titulo:"Declaração de renda", concluida: true, prioridade:"alta", dataCriacao: new Date(2025, 12, 29)},
-      {id:5, titulo:"Pagar impostos", concluida: false, prioridade:"média", dataCriacao: new Date(2026, 3, 15)}    
-  ] 
+      {id:5, titulo:"Pagar impostos", concluida: false, prioridade:"média", dataCriacao: new Date(2026, 3, 15)}
+  ]
+
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    if (!localStorage.getItem('produtos') || !localStorage.getItem('tarefas')) {
+      salvarDados(this.produtos, this.tarefas);
+    }
   }
-  
+
   salvar(): void {
     this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
     this.tarefas = JSON.parse(localStorage.getItem('tarefas') || '[]');

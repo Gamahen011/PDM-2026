@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
 import { Produto, Tarefa } from '../desafio2/desafio2.page';
-import { salvarDados } from '../fuctions';
+import { salvarDados, enviarAlert } from '../fuctions';
 
 @Component({
   selector: 'app-concluir-tarefa',
@@ -29,19 +29,20 @@ export class ConcluirTarefaPage implements OnInit {
     this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
     for (let tarefa of this.tarefas) {
       if (tarefa.id === id) {
+        if (tarefa.concluida) {
+          return `A tarefa "${tarefa.titulo}" já está concluída!`;
+        }
         tarefa.concluida = true;
         this.idTarefa = -1;
         salvarDados(this.produtos, this.tarefas);
-        alert(`Tarefa "${tarefa.titulo}" concluída com sucesso!`);
-        break;
+        return `Tarefa "${tarefa.titulo}" concluída com sucesso!`;
       }
     }
     return "Tarefa não encontrada!";
   }
 
-
-
-
-
+  Alert() {
+      enviarAlert(this.concluirTarefa(this.idTarefa));
+    }
 
 }

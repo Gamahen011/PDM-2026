@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonTitle, IonToolbar, IonList } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
 import { Produto, Tarefa } from '../desafio2/desafio2.page';
-import { salvarDados } from '../fuctions';
+import { salvarDados, enviarAlert } from '../fuctions';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -26,26 +26,30 @@ export class CadastrarProdutoPage implements OnInit {
   ngOnInit() {
   }
 
-  cadastrarProduto(): void {
+  cadastrarProduto(): string {
     this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
     this.tarefas = JSON.parse(localStorage.getItem('tarefas') || '[]');
     if (this.nome && this.preco && this.estoque) {
-      const novoProduto: Produto = {
+      var novoProduto: Produto = {
         id: this.produtos.length + 1,
         nome: this.nome,
         preco: this.preco,
-        estoque: this.estoque
+        estoque: this.estoque,
       };
       this.produtos.push(novoProduto);
       salvarDados(this.produtos, this.tarefas);
       this.nome = '';
       this.preco = undefined;
       this.estoque = undefined;
-      alert('Produto cadastrado com sucesso!');
-    } 
-    else {
-      alert('Preencha todos os campos!');
+      return 'Produto cadastrado com sucesso!';
     }
+    else {
+      return ('Preencha todos os campos!');
+    }
+  }
+
+  Alert(mensagem: string) {
+    enviarAlert(mensagem);
   }
 
 }

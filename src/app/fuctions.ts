@@ -11,19 +11,19 @@ export function calcularTotalEstoque(): string {
     return totalFormatado;
 };
 
-export function contarPorPrioridade(): [number, number, number] { 
+export function contarPorPrioridade(): [number, number, number] {
    let alta = 0;
    let media = 0;
    let baixa = 0;
    let tarefas: Tarefa[] = JSON.parse(localStorage.getItem('tarefas') || '[]');
-   tarefas.forEach(t => { 
-       if (t.prioridade === "alta") 
-           (alta += 1); 
-       if (t.prioridade === "média") 
-           (media += 1); 
-       if (t.prioridade === "baixa") 
-           (baixa += 1);       
-   }) 
+   tarefas.forEach(t => {
+       if (t.prioridade === "alta")
+           (alta += 1);
+       if (t.prioridade === "média")
+           (media += 1);
+       if (t.prioridade === "baixa")
+           (baixa += 1);
+   })
    return [alta, media, baixa];
 };
 
@@ -31,14 +31,14 @@ export function filtrarTarefas(): [Tarefa[], Tarefa[]] {
     let concluidas: Tarefa[] = [];
     let pendentes: Tarefa[] = [];
     let tarefas: Tarefa[] = JSON.parse(localStorage.getItem('tarefas') || '[]');
-    tarefas.forEach(t => { 
-        if (t.concluida) 
-           (concluidas.push(t)) 
+    tarefas.forEach(t => {
+        if (t.concluida)
+           (concluidas.push(t))
    })
-   tarefas.forEach(t => { 
-       if (!t.concluida) 
-           (pendentes.push(t)) 
-   }) 
+   tarefas.forEach(t => {
+       if (!t.concluida)
+           (pendentes.push(t))
+   })
    return [concluidas, pendentes];
 };
 
@@ -59,3 +59,7 @@ export function salvarDados(produtos: Produto[], tarefas: Tarefa[]): void {
     localStorage.setItem('produtos', JSON.stringify(produtos));
     localStorage.setItem('tarefas', JSON.stringify(tarefas));
   }
+
+export function enviarAlert(mensagem: string): void {
+    window.alert(mensagem);
+}

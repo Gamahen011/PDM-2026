@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonItem, IonTitle, IonToolbar, IonList } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
 import { Produto } from '../desafio2/desafio2.page';
-import { calcularTotalEstoque } from '../fuctions.js';
+import { calcularTotalEstoque, formatarPreco } from '../fuctions.js';
 
 @Component({
   selector: 'app-listar-produtos',
@@ -27,6 +27,11 @@ export class ListarProdutosPage implements OnInit {
     this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
     this.valorTotalEstoque = calcularTotalEstoque();
     return this.produtos;
+  }
+
+  preco(id: number): string {
+    this.produtos = JSON.parse(localStorage.getItem('produtos') || '[]');
+        return formatarPreco(id);
   }
 
 }

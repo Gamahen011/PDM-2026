@@ -12,7 +12,7 @@
   </ion-header>
   <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button>
   <ion-input type="number" placeholder="Digite o id do produto" [(ngModel)]="idProduto" name="idProduto"> </ion-input>
-  <ion-button type="submit" (click)="formatarPreco(idProduto)">Formatar Preço</ion-button>
+  <ion-button type="submit" (click)="Alert(formatarPreco(idProduto))">Formatar Preço</ion-button>
   <h2 *ngIf="precoFormatado">Preço formatado: {{ precoFormatado }}</h2>
   <h2 *ngIf="!precoFormatado">Produto não encontrado</h2>
 </ion-content>

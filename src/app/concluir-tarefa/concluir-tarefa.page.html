@@ -12,6 +12,5 @@
   </ion-header>
   <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
   <ion-input placeholder="Id da tarefa a concluir" type="number" [(ngModel)]="idTarefa"></ion-input>
-  <ion-button (click)="concluirTarefa(idTarefa)">Concluir Tarefa</ion-button>
-
+  <ion-button (click)="concluirTarefa(idTarefa); Alert()">Concluir Tarefa</ion-button>
 </ion-content>
