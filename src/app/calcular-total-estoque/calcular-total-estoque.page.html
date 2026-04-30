@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-button routerLink="/desafio2">Voltar para o Menu</ion-button> <br> <br>
-  <ion-button (click)="calcularTotalEstoque()">Calcular Total no Estoque</ion-button>
   <h2 *ngIf="total > 0">Valor total: {{ totalFormatado }}</h2>
   <h2 *ngIf="total === 0">Nenhum produto encontrado</h2>
+  <ion-button (click)="calcularTotalEstoque()">Calcular Total no Estoque</ion-button>
 </ion-content>

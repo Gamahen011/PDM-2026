@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonButton, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Router, RouterModule } from '@angular/router';
 import { Produto } from '../desafio2/desafio2.page';
+import { formatarPreco } from '../fuctions.js';
 
 @Component({
   selector: 'app-calcular-total-estoque',
@@ -28,7 +29,7 @@ export class CalcularTotalEstoquePage implements OnInit {
     produtos.forEach(p => {
     this.total += (p.preco * p.estoque);
     });
-    this.totalFormatado = this.total + ",00 reais";
+    this.totalFormatado = this.total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
     return this.totalFormatado;
   }
 

@@ -30,7 +30,7 @@ export class FormatarPrecoPage implements OnInit {
       const produtos: Produto[] = JSON.parse(localStorage.getItem('produtos') || '[]');
       produtos.forEach(p => {
         if (p.id === id) {
-          this.precoFormatado = "R$ " + p.preco + ",00"
+          this.precoFormatado = p.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
           this.sucesso = true;
         }
       });
@@ -41,6 +41,7 @@ export class FormatarPrecoPage implements OnInit {
     }
     return "Produto não encontrado!";
   }
+
 
   Alert(mensagem: string): void {
     enviarAlert(mensagem);
